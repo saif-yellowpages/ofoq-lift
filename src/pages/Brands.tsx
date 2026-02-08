@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Brands = () => {
+  const { t, isRTL } = useLanguage();
   const brands = [
     {
       name: "GENTING",

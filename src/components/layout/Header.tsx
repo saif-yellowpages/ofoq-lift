@@ -8,16 +8,19 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLanguage } from "@/i18n/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t, isRTL } = useLanguage();
 
   const isActive = (path: string) => location.pathname === path;
 
   const navLinkClass = (path: string) =>
     `font-medium transition-colors hover:text-accent ${
-      isActive(path) ? "text-accent" : "text-primary-foreground"
+      isActive(path) ? "text-accent" : "text-foreground"
     }`;
 
   return (
@@ -25,7 +28,7 @@ const Header = () => {
       {/* Top bar */}
       <div className="bg-primary text-primary-foreground py-2 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-          <div className="flex items-center gap-6">
+          <div className={`flex items-center gap-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <a href="tel:+966501080031" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Phone className="w-4 h-4" />
               +966 50 108 0031
@@ -35,8 +38,11 @@ const Header = () => {
               info@ofoqlift.com
             </a>
           </div>
-          <div className="text-muted-foreground">
-            Riyadh, Kingdom of Saudi Arabia
+          <div className="flex items-center gap-4">
+            <span className="text-muted-foreground">
+              {t('location')}
+            </span>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
@@ -52,16 +58,18 @@ const Header = () => {
               </div>
               <div>
                 <span className="font-heading font-bold text-xl text-primary block leading-tight">
-                  OFOQ LIFT
+                  {isRTL ? 'أفق للمصاعد' : 'OFOQ LIFT'}
                 </span>
-                <span className="text-xs text-muted-foreground">Elevator Solutions</span>
+                <span className="text-xs text-muted-foreground">
+                  {isRTL ? 'حلول المصاعد' : 'Elevator Solutions'}
+                </span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
-              <Link to="/" className={navLinkClass("/").replace("text-primary-foreground", "text-foreground")}>
-                Home
+            <div className={`hidden lg:flex items-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <Link to="/" className={navLinkClass("/")}>
+                {t('home')}
               </Link>
 
               {/* Products Dropdown */}
@@ -71,34 +79,34 @@ const Header = () => {
                     ? "text-accent"
                     : "text-foreground"
                 }`}>
-                  Products <ChevronDown className="w-4 h-4" />
+                  {t('products')} <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-card border-border z-50">
                   <DropdownMenuItem asChild>
                     <Link to="/elevators" className="cursor-pointer">
-                      Elevators
+                      {t('elevators')}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link to="/brands" className="cursor-pointer">
-                      Brands
+                      {t('brands')}
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link to="/about" className={navLinkClass("/about").replace("text-primary-foreground", "text-foreground")}>
-                About Us
+              <Link to="/about" className={navLinkClass("/about")}>
+                {t('aboutUs')}
               </Link>
-              <Link to="/contact" className={navLinkClass("/contact").replace("text-primary-foreground", "text-foreground")}>
-                Contact Us
+              <Link to="/contact" className={navLinkClass("/contact")}>
+                {t('contactUs')}
               </Link>
             </div>
 
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Button asChild className="bg-accent hover:bg-gold-dark text-accent-foreground font-semibold shadow-gold">
-                <Link to="/contact">Get a Quote</Link>
+                <Link to="/contact">{t('getQuote')}</Link>
               </Button>
             </div>
 
@@ -117,28 +125,32 @@ const Header = () => {
         {isOpen && (
           <div className="lg:hidden bg-card border-t border-border">
             <div className="container mx-auto px-4 py-4 space-y-4">
+              <div className="flex justify-between items-center pb-2 border-b border-border">
+                <span className="text-sm text-muted-foreground">{t('location')}</span>
+                <LanguageSwitcher />
+              </div>
               <Link
                 to="/"
                 className="block py-2 font-medium text-foreground hover:text-accent"
                 onClick={() => setIsOpen(false)}
               >
-                Home
+                {t('home')}
               </Link>
               <div className="border-t border-border pt-2">
-                <p className="text-sm text-muted-foreground mb-2">Products</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('products')}</p>
                 <Link
                   to="/elevators"
-                  className="block py-2 pl-4 font-medium text-foreground hover:text-accent"
+                  className={`block py-2 ${isRTL ? 'pr-4' : 'pl-4'} font-medium text-foreground hover:text-accent`}
                   onClick={() => setIsOpen(false)}
                 >
-                  Elevators
+                  {t('elevators')}
                 </Link>
                 <Link
                   to="/brands"
-                  className="block py-2 pl-4 font-medium text-foreground hover:text-accent"
+                  className={`block py-2 ${isRTL ? 'pr-4' : 'pl-4'} font-medium text-foreground hover:text-accent`}
                   onClick={() => setIsOpen(false)}
                 >
-                  Brands
+                  {t('brands')}
                 </Link>
               </div>
               <Link
@@ -146,18 +158,18 @@ const Header = () => {
                 className="block py-2 font-medium text-foreground hover:text-accent"
                 onClick={() => setIsOpen(false)}
               >
-                About Us
+                {t('aboutUs')}
               </Link>
               <Link
                 to="/contact"
                 className="block py-2 font-medium text-foreground hover:text-accent"
                 onClick={() => setIsOpen(false)}
               >
-                Contact Us
+                {t('contactUs')}
               </Link>
               <Button asChild className="w-full bg-accent hover:bg-gold-dark text-accent-foreground font-semibold">
                 <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Get a Quote
+                  {t('getQuote')}
                 </Link>
               </Button>
             </div>
