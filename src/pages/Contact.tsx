@@ -6,8 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import Layout from "@/components/layout/Layout";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Contact = () => {
+  const { t, isRTL } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",

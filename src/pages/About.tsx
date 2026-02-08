@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Target, Eye, Award, Users, Building, Clock } from "lucide-react";
+import { ArrowRight, Target, Eye, Award, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const About = () => {
+  const { t, isRTL } = useLanguage();
   const values = [
     {
       icon: Award,

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
 /* Ofoq Lift Design System - Professional Elevator Company Theme */
 
@@ -121,11 +121,16 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'Noto Sans Arabic', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Noto Sans Arabic', sans-serif;
+  }
+
+  [dir="rtl"] body,
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif;
   }
 }
 
@@ -154,5 +159,42 @@
   .card-hover:hover {
     @apply -translate-y-1;
     box-shadow: 0 20px 25px -5px hsla(220 30% 15% / 0.1), 0 8px 10px -6px hsla(220 30% 15% / 0.1);
+  }
+
+  /* Image animations */
+  .img-animate {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .img-animate:hover {
+    @apply scale-105;
+  }
+
+  .img-fade-in {
+    animation: imgFadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes imgFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .img-float {
+    animation: imgFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes imgFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
 }
