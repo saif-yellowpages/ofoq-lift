@@ -95,6 +95,10 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
+              <Link to="/brochures" className={navLinkClass("/brochures")}>
+                {t('brochures')}
+              </Link>
+
               <Link to="/about" className={navLinkClass("/about")}>
                 {t('aboutUs')}
               </Link>
@@ -153,6 +157,13 @@ const Header = () => {
                   {t('brands')}
                 </Link>
               </div>
+              <Link
+                to="/brochures"
+                className="block py-2 font-medium text-foreground hover:text-accent"
+                onClick={() => setIsOpen(false)}
+              >
+                {t('brochures')}
+              </Link>
               <Link
                 to="/about"
                 className="block py-2 font-medium text-foreground hover:text-accent"
