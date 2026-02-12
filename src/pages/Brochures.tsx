@@ -13,6 +13,10 @@ import gefranCover from "@/assets/covers/gefran.jpg";
 import gentingCover from "@/assets/covers/genting.jpg";
 import mertiCover from "@/assets/covers/merti.jpg";
 import elevatorAccessoriesCover from "@/assets/covers/elevator-accessories.jpg";
+import monarchCover from "@/assets/covers/monarch.jpg";
+import sicorGearedCover from "@/assets/covers/sicor-geared.jpg";
+import sicorGearlessCover from "@/assets/covers/sicor-gearless.jpg";
+import vegaCover from "@/assets/covers/vega.jpg";
 
 const Brochures = () => {
   const { isRTL } = useLanguage();
@@ -139,6 +143,50 @@ const Brochures = () => {
       coverImage: elevatorAccessoriesCover,
       downloadUrl: "/brochures/Elevator_Accessories.pdf",
     },
+    {
+      title: isRTL ? "كتالوج حلول Monarch E-Package" : "Monarch E-Package Catalog",
+      description: isRTL
+        ? "كتالوج حلول Monarch الإلكترونية المتكاملة للمصاعد يشمل لوحات التحكم وواجهات HMI والملحقات."
+        : "Monarch integrated elevator e-package solutions including control cabinets, HMI series, and complete accessories.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "50",
+      fileSize: "11 MB",
+      coverImage: monarchCover,
+      downloadUrl: "/brochures/Monarch_E-Package_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج ماكينات SICOR المسننة" : "SICOR Geared Machines Catalog",
+      description: isRTL
+        ? "كتالوج ماكينات الجر المسننة من SICOR الإيطالية مع المواصفات الفنية والأبعاد التفصيلية."
+        : "SICOR Italian geared traction machines catalog with detailed technical specifications and dimensions.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "36",
+      fileSize: "8 MB",
+      coverImage: sicorGearedCover,
+      downloadUrl: "/brochures/SICOR_Geared_Machines_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج ماكينات SICOR بدون تروس" : "SICOR Gearless Machines Catalog",
+      description: isRTL
+        ? "كتالوج ماكينات الجر بدون تروس من سلسلة SG من SICOR مع جداول الأحمال والأداء."
+        : "SICOR SG series gearless machines catalog with load tables, performance data, and traction sheave specifications.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "49",
+      fileSize: "10 MB",
+      coverImage: sicorGearlessCover,
+      downloadUrl: "/brochures/SICOR_Gearless_Machine_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج لوحة تحكم VEGA" : "VEGA Control Panel Catalog",
+      description: isRTL
+        ? "دليل المستخدم للوحة التحكم VEG2000 مع البرمجة والأسلاك ورسائل الأعطال."
+        : "VEG2000 lift control board user manual with programming, wiring descriptions, and fault diagnostics.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "45",
+      fileSize: "7 MB",
+      coverImage: vegaCover,
+      downloadUrl: "/brochures/VEGA_Control_Panel_Catalog.pdf",
+    },
   ];
 
   return (
@@ -169,7 +217,7 @@ const Brochures = () => {
             {brochures.map((brochure, index) => (
               <div
                 key={index}
-                className="bg-card rounded-2xl overflow-hidden shadow-lg card-hover group"
+                className="bg-card rounded-2xl overflow-hidden shadow-lg card-hover group flex flex-col"
               >
                 {/* Cover Image */}
                 <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
@@ -187,15 +235,15 @@ const Brochures = () => {
                 </div>
 
                 {/* Details */}
-                <div className="p-6 space-y-4">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-heading font-bold text-xl text-foreground leading-tight">
                     {brochure.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed mt-3">
                     {brochure.description}
                   </p>
 
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mt-3">
                     <span className="flex items-center gap-1">
                       <FileText className="w-4 h-4" />
                       {brochure.pages} {isRTL ? "صفحات" : "pages"}
@@ -203,15 +251,17 @@ const Brochures = () => {
                     <span>{brochure.fileSize}</span>
                   </div>
 
-                  <Button
-                    asChild
-                    className="w-full bg-accent hover:bg-gold-dark text-accent-foreground font-semibold shadow-gold"
-                  >
-                    <a href={brochure.downloadUrl} download>
-                      <Download className={`w-5 h-5 ${isRTL ? "ml-2" : "mr-2"}`} />
-                      {isRTL ? "تحميل الكتيب" : "Download Brochure"}
-                    </a>
-                  </Button>
+                  <div className="mt-auto pt-4">
+                    <Button
+                      asChild
+                      className="w-full bg-accent hover:bg-gold-dark text-accent-foreground font-semibold shadow-gold"
+                    >
+                      <a href={brochure.downloadUrl} download>
+                        <Download className={`w-5 h-5 ${isRTL ? "ml-2" : "mr-2"}`} />
+                        {isRTL ? "تحميل الكتيب" : "Download Brochure"}
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
