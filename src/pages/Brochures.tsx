@@ -3,21 +3,141 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { useLanguage } from "@/i18n/LanguageContext";
 import brochureCover from "@/assets/brochure-cover.jpg";
+import controlPanelCover from "@/assets/covers/control-panel.jpg";
+import elmoCover from "@/assets/covers/elmo.jpg";
+import fujihdCover from "@/assets/covers/fujihd.jpg";
+import futureFujiCover from "@/assets/covers/future-fuji.jpg";
+import gearboxCover from "@/assets/covers/gearbox.jpg";
+import gearlessLiftsCover from "@/assets/covers/gearless-lifts.jpg";
+import gefranCover from "@/assets/covers/gefran.jpg";
+import gentingCover from "@/assets/covers/genting.jpg";
+import mertiCover from "@/assets/covers/merti.jpg";
+import elevatorAccessoriesCover from "@/assets/covers/elevator-accessories.jpg";
 
 const Brochures = () => {
-  const { t, isRTL } = useLanguage();
+  const { isRTL } = useLanguage();
 
   const brochures = [
     {
       title: isRTL ? "ملف تعريف شركة أفق للمصاعد" : "Ofoq Elevators Company Profile",
       description: isRTL
         ? "ملف تعريفي شامل عن شركة أفق للمصاعد يتضمن رؤيتنا ورسالتنا وقيمنا ومنتجاتنا وخدماتنا."
-        : "A comprehensive company profile of Ofoq Elevators featuring our vision, mission, values, products, and services.",
+        : "A comprehensive company profile featuring our vision, mission, values, products, and services.",
       language: isRTL ? "العربية" : "Arabic",
       pages: "12",
       fileSize: "2.5 MB",
       coverImage: brochureCover,
       downloadUrl: "/brochures/Ofoq_Elevators_Brochure_Arabic.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج لوحات التحكم والإكسسوارات" : "Control Panel & Accessories Catalog",
+      description: isRTL
+        ? "كتالوج شامل للوحات التحكم COP/LOP، الأزرار، الشاشات، أنظمة التحكم بالوصول والملحقات الإلكترونية."
+        : "Complete catalog of COP/LOP panels, buttons, displays, access control systems, and electronic accessories.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "35",
+      fileSize: "8 MB",
+      coverImage: controlPanelCover,
+      downloadUrl: "/brochures/Control_Panel_And_Accessories_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج مصاعد ELMO" : "ELMO Elevators Catalog",
+      description: isRTL
+        ? "كتالوج مصاعد شنغهاي ELMO يشمل مصاعد الركاب والبانوراما والشحن والفلل والسلالم المتحركة."
+        : "Shanghai ELMO Elevator catalog featuring passenger, observation, freight, villa elevators, escalators, and moving walks.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "24",
+      fileSize: "5 MB",
+      coverImage: elmoCover,
+      downloadUrl: "/brochures/ELMO_Elevators_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج FUJIHD" : "FUJIHD Elevator Catalog",
+      description: isRTL
+        ? "كتالوج مصاعد هينغدا فوجي يشمل جميع أنواع المصاعد مع تقنيات التصنيع الذكي 4.0."
+        : "Hengda Fuji elevator catalog with full range of elevators and Industry 4.0 intelligent manufacturing technology.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "40",
+      fileSize: "10 MB",
+      coverImage: fujihdCover,
+      downloadUrl: "/brochures/FUJIHD_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج مصاعد Future Fuji" : "Future Fuji Elevator Catalog",
+      description: isRTL
+        ? "كتالوج مصاعد سوتشو فيوتشر فوجي مع أنظمة السلامة المتقدمة وتصميم مريح وموفر للطاقة."
+        : "Suzhou Future Fuji elevator catalog with advanced safety systems, comfort design, and energy-saving features.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "30",
+      fileSize: "7 MB",
+      coverImage: futureFujiCover,
+      downloadUrl: "/brochures/FUTURE_FUJI_Elevator_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج علب التروس (Alberto Sassi)" : "Gearbox Catalog (Alberto Sassi)",
+      description: isRTL
+        ? "كتالوج أرغاني ساسي الإيطالية لعلب تروس المصاعد مع المواصفات الفنية الكاملة."
+        : "Alberto Sassi Italian gearbox catalog with complete technical specifications for elevator traction machines.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "72",
+      fileSize: "12 MB",
+      coverImage: gearboxCover,
+      downloadUrl: "/brochures/Gearbox_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج المحركات بدون تروس" : "Gearless Lifts Catalog",
+      description: isRTL
+        ? "كتالوج محركات المصاعد بدون تروس عالية الكفاءة والأداء."
+        : "High-efficiency gearless traction machine catalog for modern elevator systems.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "20",
+      fileSize: "4 MB",
+      coverImage: gearlessLiftsCover,
+      downloadUrl: "/brochures/Gearless_Lifts_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج محولات Gefran" : "Gefran Inverter Catalog",
+      description: isRTL
+        ? "كتالوج محولات ADL500 من Gefran المخصصة للمصاعد مع حلول توفير الطاقة والتحكم الذكي."
+        : "Gefran ADL500 series inverters for elevators with energy-saving solutions and smart control features.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "16",
+      fileSize: "3 MB",
+      coverImage: gefranCover,
+      downloadUrl: "/brochures/Gefran_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج منتجات Genting" : "Genting Product Catalog 2024",
+      description: isRTL
+        ? "كتالوج قطع غيار المصاعد والسلالم المتحركة من Genting يشمل لوحات التحكم والأبواب والمستشعرات."
+        : "Genting elevator & escalator spare parts catalog including control boards, doors, sensors, and safety components.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "62",
+      fileSize: "9 MB",
+      coverImage: gentingCover,
+      downloadUrl: "/brochures/Genting_Product_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج مصاعد Merti" : "Merti Elevator Catalog",
+      description: isRTL
+        ? "كتالوج مصاعد ميرتي يشمل مصاعد الركاب والبانوراما وبدون غرفة ماكينات مع تقنيات توفير الطاقة."
+        : "Merti passenger, panoramic, and machine-room-less elevator catalog with energy-saving technologies.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "28",
+      fileSize: "6 MB",
+      coverImage: mertiCover,
+      downloadUrl: "/brochures/Merti_Elevator_Catalog.pdf",
+    },
+    {
+      title: isRTL ? "كتالوج إكسسوارات المصاعد" : "Elevator Accessories Catalog",
+      description: isRTL
+        ? "كتالوج شامل لإكسسوارات المصاعد من أحذية التوجيه والمخمدات إلى المستشعرات والمفاتيح."
+        : "Comprehensive elevator accessories catalog including guide shoes, buffers, sensors, and switches.",
+      language: isRTL ? "الإنجليزية" : "English",
+      pages: "18",
+      fileSize: "3.5 MB",
+      coverImage: elevatorAccessoriesCover,
+      downloadUrl: "/brochures/Elevator_Accessories.pdf",
     },
   ];
 
