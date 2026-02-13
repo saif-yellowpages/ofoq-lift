@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
+import ofoqLogo from "@/assets/ofoq-logo.svg";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -52,18 +53,8 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-hero rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-heading font-bold text-xl">O</span>
-              </div>
-              <div>
-                <span className="font-heading font-bold text-xl text-primary block leading-tight">
-                  {isRTL ? 'أفق للمصاعد' : 'OFOQ LIFT'}
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  {isRTL ? 'حلول المصاعد' : 'Elevator Solutions'}
-                </span>
-              </div>
+            <Link to="/" className="flex items-center">
+              <img src={ofoqLogo} alt="OFOQ Lift" className="h-12 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
