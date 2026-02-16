@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 interface LayoutProps {
@@ -17,6 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 };
