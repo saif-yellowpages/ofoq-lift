@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Navigation } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -46,25 +46,27 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Visit Us",
-      details: ["Riyadh", "Kingdom of Saudi Arabia"],
+      title: isRTL ? t('visitUs') : "Visit Us",
+      details: isRTL ? ["الرياض ، المهديه"] : ["Al Mahdiyah, Riyadh"],
     },
     {
       icon: Phone,
-      title: "Call Us",
+      title: isRTL ? t('callUs') : "Call Us",
       details: ["+966 50 108 0031"],
       link: "tel:+966501080031",
     },
     {
       icon: Mail,
-      title: "Email Us",
+      title: isRTL ? t('emailUs') : "Email Us",
       details: ["info@ofoqlift.com"],
       link: "mailto:info@ofoqlift.com",
     },
     {
       icon: Clock,
-      title: "Working Hours",
-      details: ["Sun - Thu: 8:00 AM - 6:00 PM", "Fri - Sat: Closed"],
+      title: isRTL ? t('workingHours') : "Working Hours",
+      details: isRTL
+        ? [t('workingHoursDetails1'), t('workingHoursDetails2')]
+        : ["Sun - Thu: 8:00 AM - 6:00 PM", "Fri - Sat: Closed"],
     },
   ];
 
@@ -74,12 +76,11 @@ const Contact = () => {
       <section className="bg-gradient-hero py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <h1 className="font-heading font-bold text-4xl md:text-5xl text-primary-foreground mb-6">
-              Contact <span className="text-accent">Us</span>
+            <h1 className={`font-heading font-bold text-4xl md:text-5xl text-primary-foreground mb-6 ${isRTL ? 'text-right' : ''}`}>
+              {isRTL ? t('contact') : 'Contact'} <span className="text-accent">{isRTL ? t('contactHighlight') : 'Us'}</span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 leading-relaxed">
-              Have a question or need a quote? Our team is ready to help you find the perfect 
-              elevator solution for your project.
+            <p className={`text-xl text-primary-foreground/90 leading-relaxed ${isRTL ? 'text-right' : ''}`}>
+              {t('contactDescription')}
             </p>
           </div>
         </div>
@@ -91,16 +92,16 @@ const Contact = () => {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <h2 className="font-heading font-bold text-2xl text-foreground mb-8">
-                Get in <span className="text-accent">Touch</span>
+              <h2 className={`font-heading font-bold text-2xl text-foreground mb-8 ${isRTL ? 'text-right' : ''}`}>
+                {isRTL ? t('getInTouch') : <>Get in <span className="text-accent">Touch</span></>}
               </h2>
               <div className="space-y-6">
-                {contactInfo.map((item, index) => (
-                  <div key={index} className="flex gap-4">
+              {contactInfo.map((item, index) => (
+                  <div key={index} className={`flex gap-4 ${isRTL ? 'flex-row-reverse text-right' : ''}`}>
                     <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-6 h-6 text-accent" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h3 className="font-heading font-semibold text-foreground mb-1">
                         {item.title}
                       </h3>
@@ -110,6 +111,7 @@ const Contact = () => {
                             key={dIndex}
                             href={item.link}
                             className="block text-muted-foreground hover:text-accent transition-colors"
+                            dir={item.icon === Phone ? 'ltr' : undefined}
                           >
                             {detail}
                           </a>
@@ -118,6 +120,19 @@ const Contact = () => {
                         )
                       ))}
                     </div>
+                    {item.icon === Mail && (
+                      <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=24.6675324,46.5350462"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="self-center"
+                      >
+                        <Button size="sm" className="bg-accent hover:bg-gold-dark text-accent-foreground font-semibold shadow-gold gap-1">
+                          <Navigation className="w-4 h-4" />
+                          {isRTL ? 'الاتجاهات' : 'Get Directions'}
+                        </Button>
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>
@@ -125,7 +140,7 @@ const Contact = () => {
               {/* Map placeholder */}
               <div className="mt-8 aspect-video bg-secondary rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d463878.24709984845!2d46.54234367656249!3d24.725465381050683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1709639940034!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3625.5!2d46.5350462!3d24.6675324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDQwJzAzLjEiTiA0NsKwMzInMDYuMiJF!5e0!3m2!1sen!2s!4v1709639940034!5m2!1sen!2s"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

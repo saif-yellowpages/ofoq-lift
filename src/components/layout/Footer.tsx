@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import ofoqLogo from "@/assets/ofoq-logo.svg";
 
 const Footer = () => {
   const { t, isRTL } = useLanguage();
@@ -14,17 +15,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-6">
-            <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-accent-foreground font-heading font-bold text-xl">O</span>
-              </div>
-              <div className={isRTL ? 'text-right' : ''}>
-                <span className="font-heading font-bold text-xl block leading-tight">
-                  {isRTL ? 'أفق للمصاعد' : 'OFOQ LIFT'}
-                </span>
-                <span className="text-sm text-primary-foreground/70">{isRTL ? 'حلول المصاعد' : 'Elevator Solutions'}</span>
-              </div>
-            </div>
+            <Link to="/" className="flex items-center">
+              <img src={ofoqLogo} alt="OFOQ Lift" className="h-12 w-auto brightness-0 invert" />
+            </Link>
             <p className={`text-primary-foreground/80 leading-relaxed ${isRTL ? 'text-right' : ''}`}>
               {t('footerDescription')}
             </p>
@@ -57,12 +50,12 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                <span className="text-primary-foreground/80">{t('location')}</span>
+                <span className="text-primary-foreground/80" dir="ltr">{t('location')}</span>
               </li>
               <li>
                 <a href="tel:+966501080031" className={`flex items-center gap-3 text-primary-foreground/80 hover:text-accent transition-colors ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                  +966 50 108 0031
+                  <span dir="ltr">+966 50 108 0031</span>
                 </a>
               </li>
               <li>

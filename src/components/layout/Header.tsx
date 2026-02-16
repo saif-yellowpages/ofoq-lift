@@ -32,7 +32,7 @@ const Header = () => {
           <div className={`flex items-center gap-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <a href="tel:+966501080031" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Phone className="w-4 h-4" />
-              +966 50 108 0031
+              <span dir="ltr">+966 50 108 0031</span>
             </a>
             <a href="mailto:info@ofoqlift.com" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Mail className="w-4 h-4" />

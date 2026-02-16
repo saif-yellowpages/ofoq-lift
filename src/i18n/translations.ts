@@ -66,7 +66,7 @@ export const translations = {
     callNow: 'اتصل الآن',
     
     // Header
-    location: 'الرياض، المملكة العربية السعودية',
+    location: 'الرياض ، المهديه',
     
     // Footer
     footerDescription: 'شريكك الموثوق لحلول المصاعد المتميزة في المملكة العربية السعودية. نقدم مصاعد عالية الجودة وخدمة استثنائية.',
@@ -245,7 +245,7 @@ export const translations = {
     callNow: 'Call Now',
     
     // Header
-    location: 'Riyadh, Kingdom of Saudi Arabia',
+    location: 'Al Mahdiyah, Riyadh',
     
     // Footer
     footerDescription: 'Your trusted partner for premium elevator solutions in Saudi Arabia. We provide high-quality elevators and exceptional service.',
