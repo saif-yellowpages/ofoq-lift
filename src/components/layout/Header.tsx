@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, Navigation } from "lucide-react";
 import ofoqLogo from "@/assets/ofoq-logo.svg";
 import { Button } from "@/components/ui/button";
 import {
@@ -37,6 +37,15 @@ const Header = () => {
             <a href="mailto:info@ofoqlift.com" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Mail className="w-4 h-4" />
               info@ofoqlift.com
+            </a>
+            <a
+              href="https://maps.app.goo.gl/sUaA8cACUFJia9X6A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 bg-accent/20 hover:bg-accent/30 text-accent px-3 py-1 rounded-full transition-colors text-xs font-semibold"
+            >
+              <Navigation className="w-3.5 h-3.5" />
+              {isRTL ? 'الاتجاهات' : 'Get Directions'}
             </a>
           </div>
           <div className="flex items-center gap-4">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, Navigation } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -120,19 +120,6 @@ const Contact = () => {
                         )
                       ))}
                     </div>
-                    {item.icon === Mail && (
-                      <a
-                        href="https://www.google.com/maps/dir/?api=1&destination=24.6675324,46.5350462"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="self-center"
-                      >
-                        <Button size="sm" className="bg-accent hover:bg-gold-dark text-accent-foreground font-semibold shadow-gold gap-1">
-                          <Navigation className="w-4 h-4" />
-                          {isRTL ? 'الاتجاهات' : 'Get Directions'}
-                        </Button>
-                      </a>
-                    )}
                   </div>
                 ))}
               </div>
@@ -140,7 +127,7 @@ const Contact = () => {
               {/* Map placeholder */}
               <div className="mt-8 aspect-video bg-secondary rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3625.5!2d46.5350462!3d24.6675324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDQwJzAzLjEiTiA0NsKwMzInMDYuMiJF!5e0!3m2!1sen!2s!4v1709639940034!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3625.5!2d46.635308!3d24.687588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDQxJzE1LjMiTiA0NsKwMzgnMDcuMSJF!5e0!3m2!1sen!2s!4v1709639940034!5m2!1sen!2s"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
